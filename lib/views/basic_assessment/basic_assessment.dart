@@ -18,7 +18,7 @@ class BasicAssessment extends StatelessWidget {
   final String question;
   final int questionNo;
   final void Function()? onPressed;
-  final bool submitOnBottom;
+  final bool? isSubmit;
 
   const BasicAssessment(
       {super.key,
@@ -26,52 +26,41 @@ class BasicAssessment extends StatelessWidget {
       required this.question,
       required this.questionNo,
       this.onPressed,
-      required this.submitOnBottom});
+      this.isSubmit});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.background,
-        body: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: SingleChildScrollView(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(height: 20),
-                    _appBar(context),
-                    SizedBox(height: 20),
-                    Text(
-                      question,
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-                    ),
-                    customWidget,
-                    (submitOnBottom)
-                        ? SizedBox()
-                        : CommonSubmitButton(
-                            buttonText: "Next",
-                            suffixIcon: SvgPicture.asset(
-                              AppImages.rightArrow,
-                              height: 24,
-                              width: 24,
-                            ),
-                            onPressed: onPressed ?? () {},
+      backgroundColor: AppColors.background,
+      body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: SingleChildScrollView(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(height: 20),
+                  _appBar(context),
+                  SizedBox(height: 20),
+                  Text(
+                    question,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                  ),
+                  customWidget,
+                  (isSubmit ?? true)
+                      ? CommonSubmitButton(
+                          buttonText: "Next",
+                          suffixIcon: SvgPicture.asset(
+                            AppImages.rightArrow,
+                            height: 24,
+                            width: 24,
                           ),
-                  ]),
-            )),
-        bottomNavigationBar: (submitOnBottom)
-            ? CommonSubmitButton(
-                buttonText: "Next",
-                suffixIcon: SvgPicture.asset(
-                  AppImages.rightArrow,
-                  height: 24,
-                  width: 24,
-                ),
-                onPressed: onPressed ?? () {},
-              )
-            : SizedBox());
+                          onPressed: onPressed ?? () {},
+                        )
+                      : SizedBox(),
+                ]),
+          )),
+    );
   }
 
   Row _appBar(BuildContext context) {

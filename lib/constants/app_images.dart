@@ -12,4 +12,5 @@ class AppImages {
   static const String googleAuthIcon = "assets/google_auth_icon.svg";
   static const String otpImage = "assets/otpImage.svg";
   static const String male = "assets/male.svg";
+  static const String female = "assets/female.svg";
 }
