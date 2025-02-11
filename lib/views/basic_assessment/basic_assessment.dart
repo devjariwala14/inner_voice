@@ -17,7 +17,7 @@ class BasicAssessment extends StatelessWidget {
   final Widget customWidget;
   final String question;
   final int questionNo;
-  final void Function()? onPressed;
+  final void Function() onPressed;
   final bool? isSubmit;
 
   const BasicAssessment(
@@ -25,7 +25,7 @@ class BasicAssessment extends StatelessWidget {
       required this.customWidget,
       required this.question,
       required this.questionNo,
-      this.onPressed,
+      required this.onPressed,
       this.isSubmit});
 
   @override
@@ -44,6 +44,7 @@ class BasicAssessment extends StatelessWidget {
                   SizedBox(height: 20),
                   Text(
                     question,
+                    textAlign: TextAlign.center,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                   ),
                   customWidget,
@@ -55,7 +56,7 @@ class BasicAssessment extends StatelessWidget {
                             height: 24,
                             width: 24,
                           ),
-                          onPressed: onPressed ?? () {},
+                          onPressed: onPressed,
                         )
                       : SizedBox(),
                 ]),

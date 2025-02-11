@@ -1,7 +1,7 @@
 /*import 'package:flutter/material.dart';
 import 'package:inner_voice/constants/app_colors.dart';
 import 'package:inner_voice/views/basic_assessment/basic_assessment.dart';
-import 'package:inner_voice/views/basic_assessment/second_page.dart';
+import 'package:inner_voice/views/basic_assessment/2_page.dart';
 
 class FirstPage extends StatelessWidget {
   FirstPage({super.key});
@@ -112,8 +112,8 @@ class FirstPage extends StatelessWidget {
 
 import 'package:flutter/material.dart';
 import 'package:inner_voice/constants/app_colors.dart';
+import 'package:inner_voice/views/basic_assessment/2_page.dart';
 import 'package:inner_voice/views/basic_assessment/basic_assessment.dart';
-import 'package:inner_voice/views/basic_assessment/second_page.dart';
 
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key});

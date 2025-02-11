@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:inner_voice/constants/app_colors.dart';
 import 'package:inner_voice/constants/app_images.dart';
-import 'package:inner_voice/views/basic_assessment/first_page.dart';
+import 'package:inner_voice/views/basic_assessment/1_page.dart';
 import 'package:inner_voice/views/forgot_pass_screen.dart';
 import 'package:inner_voice/views/signup_screen.dart';
 import 'package:inner_voice/widgets/common_submit_button.dart';
@@ -24,7 +24,11 @@ class _LoginScreenState extends State<LoginScreen> {
       resizeToAvoidBottomInset: true,
       backgroundColor: AppColors.background,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          //   WeightInput
+          // Navigator.of(context)
+          //     .push(MaterialPageRoute(builder: (context) => WeightInput()));
+        },
         child: Text("Test"),
       ),
       body: SingleChildScrollView(
@@ -77,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Text(
             "Forgot Password",
             style: TextStyle(
-                fontWeight: FontWeight.bold, color: Color(0xff90C2E0)),
+                fontWeight: FontWeight.bold, color: AppColors.mainColor),
           )),
     );
   }
@@ -98,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
               TextSpan(
                   text: "Sign Up",
                   style: TextStyle(
-                      color: Color(0xff90C2E0), fontWeight: FontWeight.bold))
+                      color: AppColors.mainColor, fontWeight: FontWeight.bold))
             ])),
       ),
     );
@@ -117,6 +121,7 @@ class _LoginScreenState extends State<LoginScreen> {
               AppImages.googleLogo,
               height: 24,
               width: 24,
+              color: AppColors.mainColor,
             ),
           ),
         ),

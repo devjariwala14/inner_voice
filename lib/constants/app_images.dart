@@ -13,4 +13,5 @@ class AppImages {
   static const String otpImage = "assets/otpImage.svg";
   static const String male = "assets/male.svg";
   static const String female = "assets/female.svg";
+  static const String sixthAssessment = "assets/sixth_assessment.svg";
 }

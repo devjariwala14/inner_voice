@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:inner_voice/constants/app_colors.dart';
 import 'package:inner_voice/constants/app_images.dart';
+import 'package:inner_voice/views/basic_assessment/3_page.dart';
 import 'package:inner_voice/views/basic_assessment/basic_assessment.dart';
-import 'package:inner_voice/views/basic_assessment/third_page.dart';
 
 class SecondPage extends StatefulWidget {
   SecondPage({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:inner_voice/constants/app_colors.dart';
+import 'package:inner_voice/views/basic_assessment/4_page.dart';
 import 'package:inner_voice/views/basic_assessment/basic_assessment.dart';
-import 'package:inner_voice/views/basic_assessment/fourth_dart.dart';
 
 class ThirdPage extends StatefulWidget {
   const ThirdPage({super.key});
@@ -22,23 +22,19 @@ class _ThirdPageState extends State<ThirdPage> {
       onPressed: () {
         print(selectedAge);
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => FourthDart()));
+            .push(MaterialPageRoute(builder: (context) => FourthPage()));
       },
       customWidget: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            "Selected Age: $selectedAge",
-            style: TextStyle(
-                fontSize: 24, fontWeight: FontWeight.bold, color: Colors.blue),
-          ),
           const SizedBox(height: 20),
           SizedBox(
-            height: 400,
+            height: 500,
             child: ListWheelScrollView.useDelegate(
-              itemExtent: 60,
-              // squeeze: 1,
+              // controller: controller,
+              itemExtent: 100,
               overAndUnderCenterOpacity: 0.75,
+              diameterRatio: 2,
               physics: const FixedExtentScrollPhysics(),
               useMagnifier: true,
               magnification: 1.5,
@@ -64,7 +60,7 @@ class _ThirdPageState extends State<ThirdPage> {
                       "$index",
                       style: TextStyle(
                         // fontSize: isSelected ? 30 : 24,
-                        fontSize: 30,
+                        fontSize: 50,
                         fontWeight: FontWeight.bold,
                         color: isSelected ? Colors.white : Colors.grey,
                       ),
