@@ -14,4 +14,13 @@ class AppImages {
   static const String male = "assets/male.svg";
   static const String female = "assets/female.svg";
   static const String sixthAssessment = "assets/sixth_assessment.svg";
+  static const String upDownArrow = "assets/icons/up_down_arrow.svg";
+  static const String excellentFace = "assets/moods/excellent.svg";
+  static const String fairFace = "assets/moods/fair.svg";
+  static const String goodFace = "assets/moods/good.svg";
+  static const String poorFace = "assets/moods/poor.svg";
+  static const String worstFace = "assets/moods/worst.svg";
+  static const String prescribed = "assets/prescribed.svg";
+  static const String pill = "assets/pill.svg";
+  static const String overTheCounter = "assets/over_the_counter.svg";
 }

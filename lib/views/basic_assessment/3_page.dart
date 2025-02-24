@@ -15,6 +15,7 @@ class _ThirdPageState extends State<ThirdPage> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return BasicAssessment(
       question: "What's Your Age?",
       questionNo: 3,
@@ -29,7 +30,7 @@ class _ThirdPageState extends State<ThirdPage> {
         children: [
           const SizedBox(height: 20),
           SizedBox(
-            height: 500,
+            height: size.height / 2,
             child: ListWheelScrollView.useDelegate(
               // controller: controller,
               itemExtent: 100,
