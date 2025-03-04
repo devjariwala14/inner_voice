@@ -4,6 +4,7 @@ import 'package:inner_voice/constants/app_colors.dart';
 import 'package:inner_voice/constants/app_images.dart';
 import 'package:inner_voice/views/basic_assessment/1_page.dart';
 import 'package:inner_voice/views/forgot_pass_screen.dart';
+import 'package:inner_voice/views/home_screen.dart';
 import 'package:inner_voice/views/signup_screen.dart';
 import 'package:inner_voice/widgets/common_submit_button.dart';
 import 'package:inner_voice/widgets/common_text_field.dart';
@@ -25,9 +26,9 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: AppColors.background,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          //   WeightInput
-          // Navigator.of(context)
-          //     .push(MaterialPageRoute(builder: (context) => WeightInput()));
+          // HomeScreen
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => HomeScreen()));
         },
         child: Text("Test"),
       ),
