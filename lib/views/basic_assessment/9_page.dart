@@ -16,6 +16,7 @@ class _NinePageState extends State<NinePage> {
   bool prescribed = false;
   bool limitedPeriod = false;
   bool notAtAll = true;
+  String meds = "I'm not taking any";
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +25,9 @@ class _NinePageState extends State<NinePage> {
         question: "Are you taking any medications?",
         questionNo: 9,
         onPressed: () {
+          (meds != "")
+              ? print("Selected option: $meds")
+              : print("not selected");
           Navigator.of(context)
               .push(MaterialPageRoute(builder: (context) => TenPage()));
         },
@@ -58,9 +62,7 @@ class _NinePageState extends State<NinePage> {
           prescribed = text == "Prescribed medicines";
           limitedPeriod = text == "Over the Counter Supplements";
           notAtAll = text == "I'm not taking any";
-
-          // Print the selected option
-          print("Selected option: $text");
+          meds = text;
         });
       },
       child: Card(

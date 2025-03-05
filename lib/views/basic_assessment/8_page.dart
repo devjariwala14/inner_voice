@@ -47,7 +47,7 @@ class _EightPageState extends State<EightPage> {
         questionNo: 8,
         question: "How would you rate your seep quality?",
         onPressed: () {
-          //   NinePage
+          print(labels[_value.toInt()]);
           Navigator.of(context)
               .push(MaterialPageRoute(builder: (context) => NinePage()));
         },
@@ -105,11 +105,9 @@ class _EightPageState extends State<EightPage> {
                     onChanged: (dynamic newValue) {
                       setState(() {
                         _value = newValue;
-                        print(labels[_value.toInt()]);
                       });
                     })),
 
-            /// Right Side - Icons ListTiles
             Expanded(
                 child: SizedBox(
                     height: size.height / 2,

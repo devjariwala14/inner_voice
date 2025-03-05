@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inner_voice/constants/app_colors.dart';
 import 'package:inner_voice/views/splash_screen.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Inner Voice',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.mainColor),
         useMaterial3: true,
       ),
       home: const SplashScreen(),

@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:inner_voice/constants/app_colors.dart';
 import 'package:inner_voice/constants/app_images.dart';
-import 'package:inner_voice/views/basic_assessment/11_page.dart';
+import 'package:inner_voice/views/basic_assessment/12_page.dart';
 import 'package:inner_voice/views/basic_assessment/basic_assessment.dart';
 
-class TenPage extends StatefulWidget {
-  const TenPage({super.key});
+class ElevenPage extends StatefulWidget {
+  const ElevenPage({super.key});
 
   @override
-  State<TenPage> createState() => _TenPageState();
+  State<ElevenPage> createState() => _ElevenPageState();
 }
 
-class _TenPageState extends State<TenPage> {
+class _ElevenPageState extends State<ElevenPage> {
   final TextEditingController _controller = TextEditingController();
   final List<String> _chips = [];
   final FocusNode _focusNode = FocusNode();
@@ -35,20 +35,20 @@ class _TenPageState extends State<TenPage> {
   @override
   Widget build(BuildContext context) {
     return BasicAssessment(
-        question: "How would you describe yourself?",
-        questionNo: 10,
-        onPressed: () {
-          print(_chips.toString());
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => ElevenPage()));
-        },
         customWidget:
             Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-          SvgPicture.asset(AppImages.heartWithHands, height: 200, width: 200),
+          SvgPicture.asset(AppImages.cryGirl, height: 200, width: 200),
           SizedBox(height: 50),
           _traitCard(),
           SizedBox(height: 50)
-        ]));
+        ]),
+        question: "Do you have other mental health symptoms?",
+        questionNo: 11,
+        onPressed: () {
+          //   TwelvePage
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => TwelvePage()));
+        });
   }
 
   Card _traitCard() {
