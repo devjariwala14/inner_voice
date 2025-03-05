@@ -23,4 +23,5 @@ class AppImages {
   static const String prescribed = "assets/prescribed.svg";
   static const String pill = "assets/pill.svg";
   static const String overTheCounter = "assets/over_the_counter.svg";
+  static const String heartWithHands = "assets/heart_wth_hands.svg";
 }

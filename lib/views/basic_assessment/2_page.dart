@@ -19,15 +19,14 @@ class _SecondPageState extends State<SecondPage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return BasicAssessment(
-      question: "What's your Gender?",
-      questionNo: 2,
-      onPressed: () {
-        print(gender);
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => ThirdPage()));
-      },
-      customWidget: Column(
-        children: [
+        question: "What's your Gender?",
+        questionNo: 2,
+        onPressed: () {
+          print(gender);
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => ThirdPage()));
+        },
+        customWidget: Column(children: [
           genderOption(
               size: size,
               text: 'I am Male',
@@ -43,32 +42,27 @@ class _SecondPageState extends State<SecondPage> {
               genderIn: "Female"),
           SizedBox(height: 20),
           Card(
-            elevation: 0,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-            color: Color(0xffE5EAD7),
-            child: Container(
-              padding: EdgeInsets.all(15),
-              alignment: Alignment.center,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Prefer to skip, thanks",
-                    style: TextStyle(
-                        color: Color(0xff9BB168),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18),
-                  ),
-                  SizedBox(width: 20),
-                  Icon(Icons.close, color: Color(0xff9BB168))
-                ],
-              ),
-            ),
-          )
-        ],
-      ),
-    );
+              elevation: 0,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)),
+              color: Color(0xffE5EAD7),
+              child: Container(
+                  padding: EdgeInsets.all(15),
+                  alignment: Alignment.center,
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Prefer to skip, thanks",
+                          style: TextStyle(
+                              color: Color(0xff9BB168),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18),
+                        ),
+                        SizedBox(width: 20),
+                        Icon(Icons.close, color: Color(0xff9BB168))
+                      ])))
+        ]));
   }
 
   GestureDetector genderOption(
@@ -78,44 +72,38 @@ class _SecondPageState extends State<SecondPage> {
       required icon,
       required String genderIn}) {
     return GestureDetector(
-      onTap: () {
-        setState(() {
-          gender = genderIn;
-        });
-      },
-      child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-        color: AppColors.background,
-        child: Container(
-          height: size.height / 4,
-          padding: EdgeInsets.all(10),
-          decoration: BoxDecoration(
-              border: (gender == genderIn)
-                  ? Border.all(color: AppColors.mainColor)
-                  : null,
-              borderRadius: BorderRadius.circular(30)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    text,
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  Icon(icon)
-                ],
-              ),
-              SvgPicture.asset(
-                image,
-                width: size.width / 2,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+        onTap: () {
+          setState(() {
+            gender = genderIn;
+          });
+        },
+        child: Card(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+            color: AppColors.background,
+            child: Container(
+                height: size.height / 4,
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                    border: (gender == genderIn)
+                        ? Border.all(color: AppColors.mainColor)
+                        : null,
+                    borderRadius: BorderRadius.circular(30)),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            text,
+                            style: TextStyle(fontSize: 16),
+                          ),
+                          Icon(icon)
+                        ],
+                      ),
+                      SvgPicture.asset(image, width: size.width / 2)
+                    ]))));
   }
 }

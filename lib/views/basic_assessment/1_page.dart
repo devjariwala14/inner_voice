@@ -136,63 +136,53 @@ class FirstPageState extends State<FirstPage> {
   @override
   Widget build(BuildContext context) {
     return BasicAssessment(
-      question: 'What’s your health goal?',
-      questionNo: 1,
-      onPressed: () {
-        print(healthGoal);
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => SecondPage()));
-      },
-      customWidget: ListView(
-        physics: NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        children: options.map((option) {
-          bool isSelected = healthGoal == option["text"];
-          return Card(
-            color: isSelected ? AppColors.mainColor : AppColors.textLightColor,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(25),
-            ),
-            elevation: isSelected ? 6 : 2,
-            shadowColor: isSelected ? Colors.black26 : Colors.grey[200],
-            child: RadioListTile<String>(
-              value: option["text"],
-              groupValue: healthGoal,
-              onChanged: (value) {
-                setState(() {
-                  healthGoal = value!;
-                });
-              },
-              title: Row(
-                children: [
-                  Icon(
-                    option["icon"],
-                    color: isSelected
-                        ? AppColors.textLightColor
-                        : AppColors.mainColor,
+        question: 'What’s your health goal?',
+        questionNo: 1,
+        onPressed: () {
+          print(healthGoal);
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => SecondPage()));
+        },
+        customWidget: ListView(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            children: options.map((option) {
+              bool isSelected = healthGoal == option["text"];
+              return Card(
+                  color: isSelected
+                      ? AppColors.mainColor
+                      : AppColors.textLightColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25),
                   ),
-                  SizedBox(width: 12),
-                  Expanded(
-                    child: Text(
-                      option["text"],
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        color: isSelected
-                            ? AppColors.textLightColor
-                            : AppColors.mainColor,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              controlAffinity: ListTileControlAffinity.trailing,
-              // Moves radio button to the right
-              activeColor: AppColors.textLightColor,
-            ),
-          );
-        }).toList(),
-      ),
-    );
+                  elevation: isSelected ? 6 : 2,
+                  shadowColor: isSelected ? Colors.black26 : Colors.grey[200],
+                  child: RadioListTile<String>(
+                      value: option["text"],
+                      groupValue: healthGoal,
+                      onChanged: (value) {
+                        setState(() {
+                          healthGoal = value!;
+                        });
+                      },
+                      title: Row(children: [
+                        Icon(option["icon"],
+                            color: isSelected
+                                ? AppColors.textLightColor
+                                : AppColors.mainColor),
+                        SizedBox(width: 12),
+                        Expanded(
+                            child: Text(option["text"],
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: isSelected
+                                        ? AppColors.textLightColor
+                                        : AppColors.mainColor)))
+                      ]),
+                      controlAffinity: ListTileControlAffinity.trailing,
+                      // Moves radio button to the right
+                      activeColor: AppColors.textLightColor));
+            }).toList()));
   }
 }

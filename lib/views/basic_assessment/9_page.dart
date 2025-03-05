@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:inner_voice/constants/app_colors.dart';
 import 'package:inner_voice/constants/app_images.dart';
+import 'package:inner_voice/views/basic_assessment/10_page.dart';
 import 'package:inner_voice/views/basic_assessment/basic_assessment.dart';
 
 class NinePage extends StatefulWidget {
@@ -12,49 +13,54 @@ class NinePage extends StatefulWidget {
 }
 
 class _NinePageState extends State<NinePage> {
-  bool isSelected = false;
+  bool prescribed = false;
+  bool limitedPeriod = false;
+  bool notAtAll = true;
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return BasicAssessment(
-      question: "Are you taking any medications?",
-      questionNo: 9,
-      onPressed: () {
-        // Navigator.of(context)
-        //     .push(MaterialPageRoute(builder: (context) => EightPage()));
-      },
-      customWidget: Wrap(
-        children: [
+        question: "Are you taking any medications?",
+        questionNo: 9,
+        onPressed: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => TenPage()));
+        },
+        customWidget: Wrap(children: [
           commonContainer(
               size: size,
               icon: AppImages.prescribed,
               text: "Prescribed medicines",
-              value: "prescribed"),
+              value: prescribed),
           commonContainer(
               size: size,
               icon: AppImages.overTheCounter,
               text: "Over the Counter Supplements",
-              value: "limited Period"),
+              value: limitedPeriod),
           commonContainer(
               size: size,
               icon: AppImages.pill,
               text: "I'm not taking any",
-              value: "No"),
-        ],
-      ),
-    );
+              value: notAtAll)
+        ]));
   }
 
-  GestureDetector commonContainer(
-      {required Size size,
-      required icon,
-      required String text,
-      required value}) {
+  GestureDetector commonContainer({
+    required Size size,
+    required String icon,
+    required String text,
+    required bool value,
+  }) {
     return GestureDetector(
       onTap: () {
         setState(() {
-          isSelected = !isSelected;
+          prescribed = text == "Prescribed medicines";
+          limitedPeriod = text == "Over the Counter Supplements";
+          notAtAll = text == "I'm not taking any";
+
+          // Print the selected option
+          print("Selected option: $text");
         });
       },
       child: Card(
@@ -64,22 +70,18 @@ class _NinePageState extends State<NinePage> {
           width: size.width / 2.5,
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           decoration: BoxDecoration(
-            color: isSelected ? Colors.white : AppColors.mainColor,
+            color: value ? AppColors.mainColor : Colors.white,
             borderRadius: BorderRadius.circular(30),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SvgPicture.asset(
-                icon,
-                color: isSelected ? AppColors.mainColor : Colors.white,
-              ),
-              Text(
-                text,
-                style: TextStyle(
-                    color: isSelected ? AppColors.mainColor : Colors.white),
-              )
+              SvgPicture.asset(icon,
+                  color: value ? Colors.white : AppColors.mainColor),
+              Text(text,
+                  style: TextStyle(
+                      color: value ? Colors.white : AppColors.mainColor)),
             ],
           ),
         ),

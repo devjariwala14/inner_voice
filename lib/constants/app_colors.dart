@@ -8,4 +8,5 @@ class AppColors {
   static const Color hintTextColor = Color(0xff736B66);
   static const Color focusBroder = Color(0xffa8bb7a);
   static const Color textLightColor = Color(0xfff7f4f2);
+  static const Color otpActiveColor = Color(0xff9BB068);
 }

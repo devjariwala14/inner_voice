@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:inner_voice/constants/app_colors.dart';
 import 'package:inner_voice/constants/app_images.dart';
 import 'package:inner_voice/views/basic_assessment/1_page.dart';
-import 'package:inner_voice/views/forgot_pass_screen.dart';
+import 'package:inner_voice/views/forget_pass/forgot_pass_screen.dart';
 import 'package:inner_voice/views/home_screen.dart';
 import 'package:inner_voice/views/signup_screen.dart';
 import 'package:inner_voice/widgets/common_submit_button.dart';

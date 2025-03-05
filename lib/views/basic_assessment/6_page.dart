@@ -18,52 +18,42 @@ class _SixthPageState extends State<SixthPage> {
   @override
   Widget build(BuildContext context) {
     return BasicAssessment(
-      customWidget: Column(
-        children: [
-          SvgPicture.asset(
-            AppImages.sixthAssessment,
-            width: MediaQuery.of(context).size.width,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              boolButton(answer: 'Yes'),
-              SizedBox(width: 10),
-              boolButton(answer: "No")
-            ],
-          ),
+        customWidget: Column(children: [
+          SvgPicture.asset(AppImages.sixthAssessment,
+              width: MediaQuery.of(context).size.width),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            boolButton(answer: 'Yes'),
+            SizedBox(width: 10),
+            boolButton(answer: 'No')
+          ]),
           SizedBox(height: 20)
-        ],
-      ),
-      question: "Have you sought professional help before?",
-      questionNo: 6,
-      onPressed: () {
-        print(isSelected);
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => SevenPage()));
-      },
-    );
+        ]),
+        question: "Have you sought professional help before?",
+        questionNo: 6,
+        onPressed: () {
+          print(isSelected);
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => SevenPage()));
+        });
   }
 
   Expanded boolButton({required String answer}) {
     return Expanded(
-      child: ElevatedButton(
-          onPressed: () {
-            setState(() {
-              isSelected = answer;
-            });
-          },
-          style: ElevatedButton.styleFrom(
-              padding: EdgeInsets.symmetric(vertical: 15),
-              backgroundColor:
-                  (isSelected == answer) ? AppColors.mainColor : Colors.white),
-          child: Text(
-            answer,
-            style: TextStyle(
-                color: (isSelected == answer)
-                    ? Colors.white
-                    : AppColors.mainColor),
-          )),
-    );
+        child: ElevatedButton(
+            onPressed: () {
+              setState(() {
+                isSelected = answer;
+              });
+            },
+            style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(vertical: 15),
+                backgroundColor: (isSelected == answer)
+                    ? AppColors.mainColor
+                    : Colors.white),
+            child: Text(answer,
+                style: TextStyle(
+                    color: (isSelected == answer)
+                        ? Colors.white
+                        : AppColors.mainColor))));
   }
 }
